@@ -1,0 +1,123 @@
+:root {
+  color-scheme: dark;
+  --bg: #0f172a;
+  --panel: #111827;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --accent: #22d3ee;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Noto Sans TC", system-ui, sans-serif;
+  background: linear-gradient(180deg, #020617, var(--bg));
+  color: var(--text);
+}
+
+header,
+footer,
+main {
+  width: min(1200px, 92vw);
+  margin: 0 auto;
+}
+
+header,
+footer {
+  padding: 1.2rem 0;
+}
+
+main {
+  display: grid;
+  gap: 1rem;
+  padding-bottom: 2rem;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid #1f2937;
+  border-radius: 14px;
+  padding: 1rem;
+}
+
+.grid-3 {
+  margin-top: 0.8rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.8rem;
+}
+
+label {
+  display: grid;
+  gap: 0.35rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+input,
+button {
+  border-radius: 8px;
+  border: 1px solid #334155;
+  background: #0b1220;
+  color: var(--text);
+  padding: 0.45rem 0.65rem;
+}
+
+button {
+  margin-top: 1rem;
+  cursor: pointer;
+  background: #0e7490;
+  border-color: #0891b2;
+}
+
+input[type="range"] {
+  width: 100%;
+}
+
+.date-row {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 0.45rem;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.8rem;
+}
+
+.card {
+  background: #0b1220;
+  border: 1px solid #243145;
+  border-radius: 10px;
+  padding: 0.75rem;
+}
+
+.card h3 {
+  margin: 0 0 0.35rem;
+  font-size: 0.95rem;
+}
+
+.note {
+  color: var(--muted);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border-bottom: 1px solid #1f2937;
+  padding: 0.5rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+a {
+  color: var(--accent);
+}

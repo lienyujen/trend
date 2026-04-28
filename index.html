@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IFP 與面板/零組件時價趨勢平台</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>全球螢幕面板、IFP 與關鍵零組件報價趨勢平台</h1>
+      <p>
+        基準日：<strong>2026-04-28</strong>｜可往前查看歷史資料、往後查看預測區間。
+      </p>
+    </header>
+
+    <main>
+      <section class="panel controls">
+        <h2>時間拉桿</h2>
+        <label for="dateSlider">選擇日期</label>
+        <input id="dateSlider" type="range" min="0" max="0" value="0" />
+        <div class="date-row">
+          <span id="minDate"></span>
+          <strong id="selectedDate"></strong>
+          <span id="maxDate"></span>
+        </div>
+
+        <div class="grid-3">
+          <label>
+            歷史起點
+            <input id="historyStart" type="date" />
+          </label>
+          <label>
+            預測終點
+            <input id="forecastEnd" type="date" />
+          </label>
+          <label>
+            預測平滑係數（0~1）
+            <input id="smoothing" type="number" step="0.05" min="0" max="1" value="0.35" />
+          </label>
+        </div>
+
+        <button id="refreshBtn">更新資料與預測</button>
+      </section>
+
+      <section class="panel">
+        <h2>綜合時價趨勢（USD 指數化）</h2>
+        <canvas id="trendChart" height="120"></canvas>
+        <p class="note">
+          說明：受限於多數面板/IFP 報價為付費訂閱，本頁面整合公開資訊與可連接來源，並提供可擴充匯入介面。
+        </p>
+      </section>
+
+      <section class="panel">
+        <h2>今日選定日期快照</h2>
+        <div id="snapshotCards" class="cards"></div>
+      </section>
+
+      <section class="panel">
+        <h2>全球資料來源（面板 / IFP / 玻璃 / SSD / 記憶體）</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>分類</th>
+              <th>來源</th>
+              <th>覆蓋內容</th>
+              <th>更新型態</th>
+              <th>取得方式</th>
+            </tr>
+          </thead>
+          <tbody id="sourceTableBody"></tbody>
+        </table>
+      </section>
+    </main>
+
+    <footer>
+      <p>提示：若你有付費帳號（如 TrendForce / Omdia / DSCC），可把匯出檔接到 app.js 的 importData()。</p>
+    </footer>
+
+    <script src="app.js" type="module"></script>
+  </body>
+</html>
