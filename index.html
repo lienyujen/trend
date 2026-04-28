@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IFP 與面板/零組件時價趨勢平台</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">TrendBoard</div>
+      <div class="search-wrap">
+        <input type="search" placeholder="搜尋面板尺寸、IFP 型號、SSD/DRAM..." />
+        <button>搜尋</button>
+      </div>
+      <div class="top-actions">
+        <span>台北市 27°C</span>
+        <button class="ghost">登入</button>
+      </div>
+      <nav class="hot-nav">
+        <a href="#">熱搜</a>
+        <a href="#">65吋面板</a>
+        <a href="#">86吋IFP</a>
+        <a href="#">Touch Glass</a>
+        <a href="#">SSD</a>
+        <a href="#">DRAM</a>
+        <a href="#">NAND</a>
+      </nav>
+    </header>
+
+    <div class="layout">
+      <aside class="sidebar">
+        <a href="#">📊 儀表板</a>
+        <a href="#">🖥 面板報價</a>
+        <a href="#">🧠 記憶體/SSD</a>
+        <a href="#">✋ 觸控/鋼化玻璃</a>
+        <a href="#">🏫 IFP 成品</a>
+        <a href="#">🌍 全球來源</a>
+        <a href="#">⚙️ 匯入資料</a>
+      </aside>
+
+      <main class="content">
+        <section class="headline">關注｜全球顯示與零組件報價即時追蹤 + 趨勢預測 →</section>
+
+        <section class="card market-grid">
+          <div class="market-left">
+            <h2>面板 / IFP / 零組件 趨勢中心</h2>
+            <div class="tab-row">
+              <span class="active">焦點</span>
+              <span>供應鏈</span>
+              <span>採購</span>
+              <span>預測</span>
+            </div>
+            <div class="hero">
+              <div class="hero-overlay">
+                <h3>從 2026-04-28 起，拖曳時間查看歷史與未來價格變化</h3>
+                <p>可比對面板、IFP、觸控玻璃、SSD、DRAM 指數</p>
+              </div>
+            </div>
+          </div>
+          <div class="market-right">
+            <p class="mini-title">今日市場快照</p>
+            <div id="snapshotCards" class="cards"></div>
+          </div>
+        </section>
+
+        <section class="card controls">
+          <h2>時間拉桿與預測設定</h2>
+          <label for="dateSlider">選擇日期</label>
+          <input id="dateSlider" type="range" min="0" max="0" value="0" />
+          <div class="date-row">
+            <span id="minDate"></span>
+            <strong id="selectedDate"></strong>
+            <span id="maxDate"></span>
+          </div>
+
+          <div class="grid-3">
+            <label>歷史起點 <input id="historyStart" type="date" /></label>
+            <label>預測終點 <input id="forecastEnd" type="date" /></label>
+            <label>預測平滑係數（0~1） <input id="smoothing" type="number" step="0.05" min="0" max="1" value="0.35" /></label>
+          </div>
+          <button id="refreshBtn">更新資料與預測</button>
+        </section>
+
+        <section class="card">
+          <h2>綜合時價趨勢（USD 指數化）</h2>
+          <canvas id="trendChart" height="120"></canvas>
+          <p class="note">說明：多數精準尺寸別報價為付費訂閱，本頁提供公開來源 + 可擴充匯入接口。</p>
+        </section>
+
+        <section class="card">
+          <h2>全球資料來源（面板 / IFP / 玻璃 / SSD / 記憶體）</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>分類</th>
+                <th>來源</th>
+                <th>覆蓋內容</th>
+                <th>更新型態</th>
+                <th>取得方式</th>
+              </tr>
+            </thead>
+            <tbody id="sourceTableBody"></tbody>
+          </table>
+        </section>
+      </main>
+
+      <aside class="right-rail">
+        <section class="rail-card index-card">
+          <h3>台股</h3>
+          <p class="big">39,952.99</p>
+          <p class="down">▲ 336.36 (0.85%)</p>
+          <small>4/28 09:50 更新</small>
+        </section>
+        <section class="rail-card ad-like">
+          <p>供應商廣告位</p>
+          <strong>大型觸控玻璃 / 工規 SSD / DRAM 模組</strong>
+        </section>
+      </aside>
+    </div>
+
+    <script src="app.js" type="module"></script>
+  </body>
+</html>
